@@ -20,7 +20,7 @@ class Comment(db.Model):
     name = db.Column(db.String(64))
     content = db.Column(db.String(4096))
 
-comments = []
+
 
 @app.route('/')
 def index():
@@ -42,7 +42,7 @@ def musings():
  if not session.get('logged_in'):
     return redirect(url_for('index'))
  else:
-    return render_template('musings.html',title='Our Magic',page_title='Our Magic'.title(),username=session.get('username'))
+    return render_template('musings.html',title='Our Magic',page_title='Our Magic'.title(),username=session.get('username'),comments=Comment.query.all())
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
