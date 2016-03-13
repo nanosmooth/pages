@@ -150,7 +150,18 @@
 	<!-- carousel ends-->
   
     <!-- comments and post comments section starts -->
+     {% for comment in comments %}
+       <div class="row">
+       {{ comment }}
+       </div>
+       {% endfor %}
 
+       <div class="row">
+       <form action="." method="POST">
+       <textarea class="form-control" name="contents" placeholder="Enter a comment"></textarea>
+       <input type="submit" value="Post comment">
+       </form>
+       </div>
 
 
     <!-- comments and post comments section ends -->
