@@ -2,7 +2,7 @@
 import sqlite3
 from flask import Flask, request, session, g, redirect, url_for, \
      abort, render_template, flash
-
+from flask.ext.sqlalchemy import SQLAlchemy
 
 
 # create our little application :)
@@ -72,4 +72,17 @@ def logout():
 
 if __name__ == '__main__':
     app.debug = True
+
+    SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
+            username="tejus",
+                password="rememberdb",
+                    hostname="tejus.mysql.pythonanywhere-services.com",
+                        databasename="tejus$comments",
+                        )
+    app.config["SQLALCHEMY_DATABASE_URI"] = SQLALCHEMY_DATABASE_URI
+    app.config["SQLALCHEMY_POOL_RECYCLE"] = 299
+
+    db = SQLAlchemy(app)
+
+
     app.run()
