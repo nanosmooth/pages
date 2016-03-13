@@ -42,9 +42,6 @@ def musings():
  if not session.get('logged_in'):
     return redirect(url_for('index'))
  else:
-    comment = Comment(content=request.form["contents"])
-    db.session.add(comment)
-    db.session.commit()
     return render_template('musings.html',title='Our Magic',page_title='Our Magic'.title(),username=session.get('username'),comments=Comment.query.all())
 
 @app.route('/login', methods=['GET', 'POST'])
