@@ -2,47 +2,6 @@
 {% block body %}
     <style>
 	body{background-color:#fff;}
-	.heart{
-    position: relative;
-    width: 100px;
-    height: 90px;
-    float: left;
-}
-.heart:before,
-.heart:after{
-    position: absolute;
-    content: "";
-    left: 50px;
-    top: 0;
-    width: 50px;
-    height: 80px;
-    background: #fc2e5a;
-    -moz-border-radius: 50px 50px 0 0;
-    border-radius: 50px 50px 0 0;
-    -webkit-transform: rotate(-45deg);
-       -moz-transform: rotate(-45deg);
-        -ms-transform: rotate(-45deg);
-         -o-transform: rotate(-45deg);
-            transform: rotate(-45deg);
-    -webkit-transform-origin: 0 100%;
-       -moz-transform-origin: 0 100%;
-        -ms-transform-origin: 0 100%;
-         -o-transform-origin: 0 100%;
-            transform-origin: 0 100%;
-}
-.heart:after{
-    left: 0;
-    -webkit-transform: rotate(45deg);
-       -moz-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-         -o-transform: rotate(45deg);
-            transform: rotate(45deg);
-    -webkit-transform-origin: 100% 100%;
-       -moz-transform-origin: 100% 100%;
-        -ms-transform-origin: 100% 100%;
-         -o-transform-origin: 100% 100%;
-            transform-origin :100% 100%;
-}
 
 	</style>
     <div class="col-md-4 col-md-offset-4 col-xs-12">
@@ -61,9 +20,14 @@
 	You are an awesome person. 
 	<br /><br />Our feelings for each other will persist. With each day, I really hope there is a daily refresh batch job which runs and refreshes the persistent feelings with more values.
 	<br /><br />Coming to the 14 pages that you wrote to me, it still means a lot to me and will mean a lot for decades to come. I just love every letter, every space, every exclamation, every character and every mark on those pages.
-	<br /><br />I really can't open it up and see it everywhere as I wish, so here it is, right on this page!!! Accessible from anywhere on this earth (as long as there is phone and connectivity).
-	<br /><br /><div class="heart col-xs-8 col-xs-offset-2"></div>
-	</p>
+    <br /><br /><span class="glyphicon glyphicon-heart" aria-hidden="true" style="color:#CC0011"></span>
+    <span class="glyphicon glyphicon-heart" aria-hidden="true" style="color:#CC0011"></span>
+    <span class="glyphicon glyphicon-heart" aria-hidden="true" style="color:#CC0011"></span>
+    <span class="glyphicon glyphicon-heart" aria-hidden="true" style="color:#CC0011"></span>
+    <span class="glyphicon glyphicon-heart" aria-hidden="true" style="color:#CC0011"></span>
+    <br /><br />I really can't open it up and see it everywhere as I wish, so here it is, right on this page!!! Accessible from anywhere on this earth (as long as there is phone and connectivity).
+    <br /><br />
+    </p>
 	
 	<!-- carousel -->
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" >
@@ -184,7 +148,11 @@
   </div>
   <br /><br />
 	<!-- carousel ends-->
-	
+   
+ <form class="col-md-4 col-md-offset-4 col-xs-12" action="{{ url_for("logout") }}" method="post">
+    <button type="submit" class="btn btn-default" >Log Out</button>
+  </form><br /><br /><br />
+
 	</div>
   
 {% endblock %}
