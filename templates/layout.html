@@ -14,7 +14,20 @@
     {% else %}
     <title>Default Title</title>
     {% endif %}
-	
+    <script>
+    
+    
+    $(function(){
+                $('#carousel-example-generic').hover(
+                        function() {
+                                $(this).carousel('pause');
+                                    },
+                                        function() {
+                                                $(this).carousel('cycle');
+                                                    }
+                                                       );
+                   });
+    </script>
   </head>
   <body>
   <div class="jumbotron">

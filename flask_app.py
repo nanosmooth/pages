@@ -24,14 +24,14 @@ def welcome():
  if not session.get('logged_in'):
     return redirect(url_for('index'))
  else:
-    return render_template('welcome.html',title='Our Magic',page_title='Welcome ' + session.get('username').title(),username=session.get('username'))
+    return render_template('welcome.html',title='Our Magic',page_title='Our Magic',username=session.get('username'))
 
 @app.route('/musings', methods=['GET', 'POST'])
 def musings():
  if not session.get('logged_in'):
     return redirect(url_for('index'))
  else:
-    return render_template('musings.html',title='Our Magic',page_title='Thanks ' + session.get('username').title(),username=session.get('username'))
+    return render_template('musings.html',title='Our Magic',page_title='Our Magic'.title(),username=session.get('username'))
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -41,10 +41,18 @@ def login():
     if request.method == 'POST':
         print request.form['inputUsername']
         print request.form['inputPassword']
-        if request.form['inputUsername'] != 'tejus':
+
+        if request.form['inputUsername'] == 'tejus':
+            app_user = 'tejus'
+            app_pass = 'remember'
+        elif request.form['inputUsername'] == 'monika':
+            app_user = 'monika'
+            app_pass = 'heartbeat9100498225'
+
+        if request.form['inputUsername'] != app_user:
             error = 'Invalid username'
             print "the username was invalid"
-        elif request.form['inputPassword'] != 'remember':
+        elif request.form['inputPassword'] != app_pass:
             error = 'Invalid password'
         else:
 
