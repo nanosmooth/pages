@@ -4,6 +4,7 @@ from flask import Flask, request, session, g, redirect, url_for, \
      abort, render_template, flash
 from flask.ext.sqlalchemy import SQLAlchemy
 
+db = SQLAlchemy(app)
 
 # create our little application :)
 app = Flask(__name__)
@@ -92,7 +93,7 @@ if __name__ == '__main__':
     app.config["SQLALCHEMY_DATABASE_URI"] = SQLALCHEMY_DATABASE_URI
     app.config["SQLALCHEMY_POOL_RECYCLE"] = 299
 
-    db = SQLAlchemy(app)
+    
 
 
     app.run()
