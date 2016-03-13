@@ -4,12 +4,13 @@ from flask import Flask, request, session, g, redirect, url_for, \
      abort, render_template, flash
 from flask.ext.sqlalchemy import SQLAlchemy
 
-db = SQLAlchemy(app)
+
 
 # create our little application :)
 app = Flask(__name__)
 app.config['SESSION_TYPE'] = 'filesystem'
 app.secret_key = 'tihishastobeaC!0n%^$@<>;;;}}}:)'
+db = SQLAlchemy(app)
 
 class Comment(db.Model):
 
