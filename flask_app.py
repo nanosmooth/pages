@@ -10,6 +10,8 @@ app = Flask(__name__)
 app.config['SESSION_TYPE'] = 'filesystem'
 app.secret_key = 'tihishastobeaC!0n%^$@<>;;;}}}:)'
 
+comments = []
+
 print "i am here"
 @app.route('/')
 def index():
