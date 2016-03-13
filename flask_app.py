@@ -22,10 +22,9 @@ class Comment(db.Model):
 
 comments = []
 
-print "i am here"
 @app.route('/')
 def index():
- print "now here"
+ print("now here")
  if not session.get('logged_in'):
     return redirect(url_for('login'))
  else:
@@ -48,11 +47,9 @@ def musings():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     error = None
-    print "yeah error is none"
-    print request.method
+    print("yeah error is none")
+    print(request.method)
     if request.method == 'POST':
-        print request.form['inputUsername']
-        print request.form['inputPassword']
 
         if request.form['inputUsername'] == 'tejus':
             app_user = 'tejus'
@@ -63,14 +60,13 @@ def login():
 
         if request.form['inputUsername'] != app_user:
             error = 'Invalid username'
-            print "the username was invalid"
         elif request.form['inputPassword'] != app_pass:
             error = 'Invalid password'
         else:
 
             session['logged_in'] = True
             session['username'] = request.form['inputUsername']
-            print "just before login"
+            print("just before login")
             return redirect(url_for('index'))
     return render_template('login.html',
                          title='LogIn - Its specialized for you',
